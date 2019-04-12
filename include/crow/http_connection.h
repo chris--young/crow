@@ -424,13 +424,6 @@ namespace crow
                 buffers_.emplace_back(content_length_.data(), content_length_.size());
                 buffers_.emplace_back(crlf.data(), crlf.size());
             }
-            if (!res.headers.count("server"))
-            {
-                static std::string server_tag = "Server: ";
-                buffers_.emplace_back(server_tag.data(), server_tag.size());
-                buffers_.emplace_back(server_name_.data(), server_name_.size());
-                buffers_.emplace_back(crlf.data(), crlf.size());
-            }
             if (!res.headers.count("date"))
             {
                 static std::string date_tag = "Date: ";
